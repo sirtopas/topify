@@ -15,8 +15,6 @@ export class HistoryComponent implements OnInit {
     ngOnInit(): void {
         this.historyService.getHistory().subscribe(history => {
             this.history = history;
-            console.log(this.history);
-
         });
     }
 }
