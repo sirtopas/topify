@@ -1,5 +1,5 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,7 @@ import { SpotifyAuthInterceptor } from './service/spotify-auth.interceptor';
 import { TokenService } from './service/token.service';
 import { UserComponent } from './user/user.component';
 import { HistoryComponent } from './history/history.component';
+import { SpotifyErrorHandler } from './service/spotify-error-handler';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,10 @@ import { HistoryComponent } from './history/history.component';
             provide: HTTP_INTERCEPTORS,
             useClass: SpotifyAuthInterceptor,
             multi: true
+        },
+        {
+            provide: ErrorHandler,
+            useClass: SpotifyErrorHandler
         },
         TokenService,
         AuthService,
