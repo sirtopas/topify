@@ -10,6 +10,6 @@ export class HistoryService {
     constructor(private http: HttpClient) { }
 
     public getHistory(): Observable<any> {
-        return this.http.get('https://api.spotify.com/v1/me/top/tracks');
+        return this.http.get('https://api.spotify.com/v1/me/top/tracks?time_range=long_term');
     }
 }
