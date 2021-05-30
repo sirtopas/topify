@@ -6,7 +6,7 @@ import { SpotifyAuthResponse } from "../shared/spotify-auth-response";
 @Injectable()
 export class TokenService {
 
-    public token: string = "";
+    public token: string = '';
     private token$ = new BehaviorSubject(this.token);
 
     public get oAuthToken(): string {
@@ -23,6 +23,8 @@ export class TokenService {
     }
 
     public get authTokens(): Observable<string> {
+        this.token = localStorage.getItem('access_token') ?? '';
+        this.token$.next(this.token);
         return this.token$.asObservable();
     }
 
