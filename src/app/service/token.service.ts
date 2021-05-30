@@ -15,6 +15,8 @@ export class TokenService {
 
     public clearToken(): void {
         this.token = "";
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('expires_in');
         this.token$.next(this.token);
     }
 

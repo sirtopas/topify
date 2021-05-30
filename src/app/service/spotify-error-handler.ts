@@ -11,8 +11,6 @@ export class SpotifyErrorHandler implements ErrorHandler {
     handleError(error: HttpErrorResponse) {
         console.log('HERE!', error);
         if (error.status === 401) {
-            localStorage.removeItem('access_token');
-            localStorage.removeItem('expires_in');
             this.tokenService.clearToken();
         }
         // do something with the exception
