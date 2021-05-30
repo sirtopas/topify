@@ -1,13 +1,5 @@
-<ul>
-    <li>
-        <a *ngIf="!authorized" (click)="login()">Login with SpotifyAuth</a>
-    </li>
-    <li>
-        <a (click)="logout()">Logout</a>
-    </li>
-</ul>
-<hr>
+<button class="btn btn-lg btn-outline-success" (click)="login()" *ngIf="!authorized">Login to Spotify</button>
 <div *ngIf="authorized">
     YOU ARE IN SON
+    <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>

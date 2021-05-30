@@ -29,7 +29,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         if (!!fragment) {
             const test = new SpotifyAuthResponse();
             //todo: take from response
-            test.access_token = 'BQCvr6V50vx6rbYlSJ1DH5cUWwsF2MqEDHEUjTG1o561cEfEWSijEaU43agqt_yppeBvSrYsKUjYULTbny6dmldrC-gIXf5WYL_DIGJ-S4ljYQo_Y2UHtsif2sxapZTFYRaGIR3p370Awu-kRztNrRs7Cw';
+            test.access_token = 'BQAzzf_xD800EVgP_7vkieueOXnO8VjJN3rFeS0mQiUSdtvzxaIvTEp_FVUDUkEXXVYZ7n_RYvcsBC3ClNyEcvQafxR7Ny69MLlQiRu8bIt1MPWzJNTi72zLfV79OmgCBEw1XujAfv00srgwI2BHlibCXA';
             return test;
         }
         return null;
