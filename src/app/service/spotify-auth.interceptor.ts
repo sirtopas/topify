@@ -6,11 +6,10 @@ import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable()
 export class SpotifyAuthInterceptor implements HttpInterceptor {
+
     constructor(private tokenService: TokenService) { }
 
     public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        console.log(req);
-
         const authReq = req.clone({ setHeaders: this.tokenService.authHeader });
         return next.handle(authReq);
     }

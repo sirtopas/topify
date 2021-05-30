@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild } from '@angular/router';
 
-import { AuthService } from './auth.service';
 import { TokenService } from './token.service';
 import { SpotifyAuthResponse } from '../shared/spotify-auth-response';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
 
-    constructor(private authService: AuthService, private tokenSvc: TokenService) { }
+    constructor(private tokenService: TokenService) { }
 
     public canActivate(
         next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -18,7 +17,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     public canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         const response = this.extractApiResponse(next.fragment);
         if (response) {
-            this.tokenSvc.setAuthToken(response);
+            this.tokenService.setAuthToken(response);
         }
         return !!response;
     }

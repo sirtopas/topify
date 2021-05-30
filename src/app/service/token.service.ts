@@ -27,11 +27,8 @@ export class TokenService {
     }
 
     public setAuthToken(spotifyResponse: SpotifyAuthResponse): boolean {
-        alert(spotifyResponse.access_token)
         if (spotifyResponse.access_token) {
             this.token = spotifyResponse.access_token;
-            console.log('the token has been fuckjing set: ', this.token);
-
         } else {
             this.token = "";
         }
