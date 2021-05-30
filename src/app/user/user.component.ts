@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenService } from '../service/token.service';
+import { UserService } from '../service/user.service';
 
 @Component({
-    selector: 'user-info',
-    template: 'Hello'
+    selector: 'app-user',
+    templateUrl: './user.component.html',
+    styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
 
-    public constructor(private tokenService: TokenService) { }
+    userDetails: any;
+
+    constructor(private userService: UserService) { }
 
     ngOnInit(): void {
+        this.userService.getUserDetails().subscribe(user => {
+            this.userDetails = user;
+        });
     }
 }

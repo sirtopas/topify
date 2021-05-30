@@ -50,10 +50,6 @@ export class ScopesBuilder {
         ScopesBuilder.PLAYBACK
     ];
 
-    /**
-     * 
-     * @param args [] means no particular scopes or public only
-     */
     public withScopes(...args: ({ [name: string]: SpotifyScope } | SpotifyScope)[]): ScopesBuilder {
         this.scopes = args;
         return this;

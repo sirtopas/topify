@@ -1,5 +1,6 @@
 <button class="btn btn-lg btn-outline-success" (click)="login()" *ngIf="!authorized">Login to Spotify</button>
 <div *ngIf="authorized">
     YOU ARE IN SON
+    <app-user></app-user>
     <router-outlet></router-outlet>
 </div>

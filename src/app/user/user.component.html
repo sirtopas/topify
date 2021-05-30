@@ -1,0 +1,8 @@
+<div class="row" *ngIf="userDetails">
+    <div class="col-lg-4">
+        <img class="rounded-circle" alt="100x100" src="{{userDetails.images[0].url}}" data-holder-rendered="true">
+        <h2>{{userDetails.display_name}}</h2>
+        <p>Followers: {{userDetails.followers.total}}</p>
+        <p><a class="btn btn-secondary" href="{{userDetails.external_urls.spotify}}">View details »</a></p>
+    </div>
+</div>
