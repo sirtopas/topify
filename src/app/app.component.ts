@@ -20,7 +20,7 @@ export class AppComponent {
                 this.authorized = true;
             }
         });
-        this.authService.authorized
+        this.authService.authorized;
     }
 
     public logout(): void {

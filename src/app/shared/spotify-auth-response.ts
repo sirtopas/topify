@@ -1,6 +1,6 @@
 export class SpotifyAuthResponse {
-    public access_token: string | undefined;
-    public expires_in: number | undefined;
+    access_token!: string;
+    expires_in!: number;
     public state: string | undefined;
     public token_type: string | undefined;
 }

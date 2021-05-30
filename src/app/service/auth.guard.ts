@@ -26,11 +26,29 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         console.log(fragment);
 
         if (!!fragment) {
-            const test = new SpotifyAuthResponse();
-            //todo: take from response
-            test.access_token = 'BQAzzf_xD800EVgP_7vkieueOXnO8VjJN3rFeS0mQiUSdtvzxaIvTEp_FVUDUkEXXVYZ7n_RYvcsBC3ClNyEcvQafxR7Ny69MLlQiRu8bIt1MPWzJNTi72zLfV79OmgCBEw1XujAfv00srgwI2BHlibCXA';
-            return test;
+            const response = new SpotifyAuthResponse();
+            //todo: make better -_-
+            var access_token = fragment.substring(
+                fragment.indexOf("=") + 1,
+                fragment.indexOf("&")
+            );
+
+            var expiresIn = fragment.substring(
+                fragment.indexOf("expires_in=") + 11,
+                fragment.lastIndexOf("&")
+            );
+
+            response.access_token = access_token;
+            response.expires_in = expiresIn;
+            this.setAuthInLocalStorage(response);
+
+            return response;
         }
         return null;
+    }
+
+    private setAuthInLocalStorage(response: SpotifyAuthResponse): void {
+        localStorage.setItem('access_token', response.access_token);
+        localStorage.setItem('expires_in', response.expires_in.toString());
     }
 }
