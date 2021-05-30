@@ -1,4 +1,3 @@
-import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SpotifyAuthComponent } from './component/spotify-auth.component';
@@ -10,17 +9,16 @@ const routes: Routes = [
         redirectTo: 'user',
         pathMatch: 'full'
     },
-
     {
         path: 'authorized',
         canActivate: [AuthGuard],
+        pathMatch: 'full',
         component: SpotifyAuthComponent
     }
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
-    providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }]
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }
