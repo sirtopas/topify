@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from './service/auth.service';
-import { HistoryService } from './service/history.service';
 import { TokenService } from './service/token.service';
 
 @Component({
@@ -15,16 +13,11 @@ export class AppComponent {
 
     constructor(
         private tokenSvc: TokenService,
-        private authService: AuthService,
-        private historyService: HistoryService,
-        private router: Router
+        private authService: AuthService
     ) {
         this.tokenSvc.authTokens.subscribe(token => {
             if (token) {
                 this.authorized = true;
-                this.historyService.getHistory().subscribe(history => {
-                    console.log(history);
-                })
             }
         });
         this.authService.authorized

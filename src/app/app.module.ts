@@ -10,11 +10,13 @@ import { HistoryService } from './service/history.service';
 import { SpotifyAuthInterceptor } from './service/spotify-auth.interceptor';
 import { TokenService } from './service/token.service';
 import { UserComponent } from './user/user.component';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        UserComponent
+        UserComponent,
+        HistoryComponent
     ],
     imports: [
         BrowserModule,
