@@ -4,6 +4,7 @@ import { AuthConfig } from '../shared/spotify-auth-config.i';
 import { ScopesBuilder } from '../shared/scopes-builder';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
@@ -14,7 +15,7 @@ export class AuthService {
     private authConfig: AuthConfig = {
         client_id: "a5ea6bcd8d39473ea31a9b70831d700c",  // move to config
         response_type: "token",
-        redirect_uri: "http://localhost:4200/authorized",
+        redirect_uri: environment.redirect_uri,
         state: "",
         show_dialog: true,
         scope: new ScopesBuilder().withScopes(ScopesBuilder.HISTORY).build()
