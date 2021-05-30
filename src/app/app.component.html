@@ -1,6 +1,6 @@
 <ul>
     <li>
-        <a routerLink="login">Login with SpotifyAuth</a>
+        <a *ngIf="!authorized" (click)="login()">Login with SpotifyAuth</a>
     </li>
     <li>
         <a (click)="logout()">Logout</a>

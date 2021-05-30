@@ -32,6 +32,9 @@ export class AppComponent {
 
     public logout(): void {
         this.tokenSvc.clearToken();
-        this.router.navigate(['login']);
+    }
+
+    public login(): void {
+        this.authService.authorize();
     }
 }

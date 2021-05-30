@@ -1,12 +1,9 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SpotifyAuthComponent } from './component/spotify-auth.component';
-import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/auth.guard';
 import { AuthService } from './service/auth.service';
 import { HistoryService } from './service/history.service';
@@ -17,7 +14,6 @@ import { UserComponent } from './user/user.component';
 @NgModule({
     declarations: [
         AppComponent,
-        LoginComponent,
         UserComponent
     ],
     imports: [
